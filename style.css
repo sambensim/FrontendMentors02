@@ -1,0 +1,242 @@
+/* #region cssreset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* #endregion */
+
+@font-face {
+    font-family: hankenGrotesk;
+    src: url("HankenGrotesk-VariableFont_wght.ttf");
+}
+
+:root {
+    --primary1-400: hsl(0, 100%, 67%);
+    --primary2-400: hsl(39, 100%, 56%);
+    --primary3-400: hsl(166, 100%, 37%);
+    --primary4-400: hsl(234, 85%, 45%);
+    --gradientbg-100: hsl(252, 100%, 67%);
+    --gradientbg-900: hsl(241, 81%, 54%);
+    --gradientc-100: hsla(241, 72%, 46%, 0);
+    --gradientc-900: hsla(256, 72%, 46%, 1);
+    --neutral-100: hsl(0, 0%, 100%);
+    --neutral-700: hsl(224, 30%, 27%);
+    --shadowcolor: hsl(221, 100%, 96%);
+    --whereisthiscolor2: hsl(241, 100%, 89%);
+
+    --regular: 500;
+    --bold: 700;
+    --extraBold: 800;
+}
+
+* {
+    box-sizing: border-box;
+    //outline: 1px dashed red;
+}
+
+body {
+    font-family: hankenGrotesk;
+    font-variation-settings: 'wght' var(--regular);
+    font-size: 1.125rem;
+}
+.card {
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 8px 8px 10px var(--shadowcolor);
+    max-width: 46.25rem;
+    border-radius: 30px;
+}
+.card > div {
+    padding-block: 3%;
+    width: 50%;
+}
+#results {
+    aspect-ratio: 7 / 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(var(--gradientbg-100),var(--gradientbg-900));
+    color: var(--neutral-100);
+    border-radius: 30px;
+    padding-inline: 8%;
+}
+#summary {
+    aspect-ratio: 7 / 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-inline: 6%;
+}
+@media (max-width: 550px) {
+    .card > div {
+        padding-block: 7%;
+        width: 100%;
+    }
+}
+h2 {
+    font-variation-settings: 'wght' var(--bold);
+    font-size: 1.5rem;
+}
+#results > h2 {
+    opacity: 0.8;
+}
+#summary > h2 {
+    align-self: flex-start;
+}
+h3 {
+
+}
+#bubble {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(var(--gradientc-900),var(--gradientc-100));
+    aspect-ratio: 1 / 1;
+    min-height: 45%;
+    border-radius: 50%;
+}
+#bubble > p:first-child {
+    font-variation-settings: 'wght' var(--extraBold);
+    font-size: 4.5rem;
+}
+#bubble > p:nth-child(2) {
+    opacity: 0.6;
+}
+#message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2.5ch;
+    line-height: 2.25ch;
+}
+#message > p:first-child {
+    font-variation-settings: 'wght' var(--bold);
+    font-size: 2.0rem;
+}
+#message > p:nth-child(2) {
+    opacity: 0.6;
+}
+#scoreDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1.5ch;
+}
+#scoreDetails > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 6%;
+    border-radius: 10px;
+}
+#scoreDetails > div > div {
+    gap: 1.25ch;
+}
+#reaction {
+    background-color: hsl(from var(--primary1-400) h s l / 0.1);
+}
+#memory {
+    background-color: hsl(from var(--primary2-400) h s l / 0.1);
+}
+#verbal {
+    background-color: hsl(from var(--primary3-400) h s l / 0.1);
+}
+#visual {
+    background-color: hsl(from var(--primary4-400) h s l / 0.1);
+}
+#reaction .left {
+    color: var(--primary1-400);
+}
+#memory .left {
+    color: var(--primary2-400);
+}
+#verbal .left {
+    color: var(--primary3-400);
+}
+#visual .left {
+    color: var(--primary4-400);
+}
+.left {
+    display: flex;
+    justify-content: flex-start;
+}
+.right {
+    display: flex;
+    justify-content: flex-end;
+}
+.right > p:nth-child(2) {
+    opacity: 0.5;
+}
+#buttonBackground {
+    background-image: linear-gradient(var(--gradientbg-100),var(--gradientbg-900));
+    width: 100%;
+    border-radius: 999px;
+}
+#buttonBackground > button  {
+    background-color: var(--neutral-700);
+    color: var(--neutral-100);
+    transition: background-color 0.4s;
+    border: none;
+    cursor: pointer;
+    font-variation-settings: 'wght' var(--bold);
+    font-size: 1.125rem;
+    width: 100%;
+    padding: 1.5ch;
+    border-radius: 999px;
+}
+#buttonBackground > button:hover  {
+    background-color: background-color: hsl(from var(--primary4-400) h s l / 0);
+}
